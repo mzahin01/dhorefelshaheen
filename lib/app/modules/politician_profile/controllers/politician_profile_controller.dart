@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+class PoliticianProfileController extends GetxController {
   RxBool isLoading = false.obs;
 }

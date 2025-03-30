@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../shared/widget/animated/crossfade_wrapper_container.dart';
 import '../../../shared/widget/responseive_view/response_view.dart';
-import '../controllers/home_controller.dart';
+import '../controllers/politician_profile_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+class PoliticianProfileView extends GetView<PoliticianProfileController> {
+  const PoliticianProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
             visible: !controller.isLoading.value,
             loaderHeight: Get.height,
             //Pass respective controller to the widget
-            child: ResponsiveWidget<HomeController>(
+            child: ResponsiveWidget<PoliticianProfileController>(
               pc: buildDesktopView(),
               tab: buildTabletView(),
               mobile: buildMobileView(),
