@@ -42,9 +42,17 @@ class HomeView extends GetView<HomeController> {
       child: Column(
         children: [
           const SizedBox(height: 20),
-          LoveHateCardWidget(controller: controller, cardTitle: 'Most Loved'),
+          LoveHateCardWidget(
+            controller: controller,
+            cardTitle: 'Most Loved',
+            index: 5,
+          ),
           const SizedBox(height: 20),
-          LoveHateCardWidget(controller: controller, cardTitle: 'Most Hated'),
+          LoveHateCardWidget(
+            controller: controller,
+            cardTitle: 'Most Hated',
+            index: 6,
+          ),
           const SizedBox(height: 20),
         ],
       ),
