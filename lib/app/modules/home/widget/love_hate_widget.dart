@@ -127,7 +127,7 @@ class LoveHateCardWidget extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(height: 4),
+                          const SizedBox(height: 0),
                           Text(
                             controller.politician[index].position,
                             style: TextStyle(

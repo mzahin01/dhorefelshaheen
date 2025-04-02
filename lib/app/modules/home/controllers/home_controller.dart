@@ -18,6 +18,24 @@ class Politician {
   });
 }
 
+class Quotes {
+  String author;
+  String image;
+  String date;
+  String quote;
+  double likeCount;
+  double disLikeCount;
+
+  Quotes({
+    required this.quote,
+    required this.author,
+    required this.date,
+    required this.image,
+    required this.likeCount,
+    required this.disLikeCount,
+  });
+}
+
 class HomeController extends GetxController {
   RxBool isLoading = false.obs;
   TextEditingController searchController = TextEditingController();
@@ -75,6 +93,72 @@ class HomeController extends GetxController {
       position: 'বাংলাদেশ সরকার',
       description:
           'নোবেল শান্তি পুরস্কার বিজয়ী এবং গ্রামীণ ব্যাংকের প্রতিষ্ঠাতা, ক্ষুদ্রঋণের পথিকৃৎ হিসেবে পরিচিত।',
+    ),
+  ];
+  List<Quotes> quotes = [
+    Quotes(
+      quote: 'দেশের মানুষের অধিকার প্রতিষ্ঠার জন্য আমরা লড়াই করে যাব',
+      author: 'মির্জা ফখরুল',
+      date: '১০ জানুয়ারি ২০২৪',
+      image: ImageAsset.fakhrul,
+      likeCount: 1200,
+      disLikeCount: 300,
+    ),
+    Quotes(
+      quote: 'গণতন্ত্র পুনরুদ্ধার না হওয়া পর্যন্ত আন্দোলন অব্যাহত থাকবে',
+      author: 'তারেক রহমান',
+      date: '৫ জানুয়ারি ২০২৪',
+      image: ImageAsset.tarek,
+      likeCount: 2500,
+      disLikeCount: 500,
+    ),
+    Quotes(
+      quote: 'দারিদ্র্য বিমোচনে আমাদের সবাইকে একসাথে কাজ করতে হবে',
+      author: 'মুহাম্মদ ইউনূস',
+      date: '১ জানুয়ারি ২০২৪',
+      image: ImageAsset.yunus,
+      likeCount: 3000,
+      disLikeCount: 200,
+    ),
+    Quotes(
+      quote: 'দেশের আইনি প্রক্রিয়া সঠিকভাবে চলছে না',
+      author: 'আসিফ মাহমুদ',
+      date: '১২ জানুয়ারি ২০২৪',
+      image: ImageAsset.asif_mahmud,
+      likeCount: 1800,
+      disLikeCount: 400,
+    ),
+    Quotes(
+      quote: 'জনগণের অধিকার রক্ষায় আমরা সর্বদা সোচ্চার থাকব',
+      author: 'ফজলুর রহমান',
+      date: '৮ জানুয়ারি ২০২৪',
+      image: ImageAsset.fazlu,
+      likeCount: 2200,
+      disLikeCount: 600,
+    ),
+    Quotes(
+      quote: 'সামাজিক ন্যায়বিচার প্রতিষ্ঠা করতে হবে',
+      author: 'শফিকুর রহমান',
+      date: '৭ জানুয়ারি ২০২৪',
+      image: ImageAsset.jamat_sh,
+      likeCount: 1500,
+      disLikeCount: 450,
+    ),
+    Quotes(
+      quote: 'রাজনৈতিক সংস্কার আজ সময়ের দাবি',
+      author: 'ফাহাম',
+      date: '৩ জানুয়ারি ২০২৪',
+      image: ImageAsset.faham,
+      likeCount: 1700,
+      disLikeCount: 350,
+    ),
+    Quotes(
+      quote: 'সুষ্ঠু নির্বাচন জনগণের মৌলিক অধিকার',
+      author: 'মির্জা ফখরুল',
+      date: '২ জানুয়ারি ২০২৪',
+      image: ImageAsset.fakhrul,
+      likeCount: 2800,
+      disLikeCount: 700,
     ),
   ];
 }
