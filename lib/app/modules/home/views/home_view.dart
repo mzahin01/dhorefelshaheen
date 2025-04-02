@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:dhorefelshaheen/app/shared/const/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -89,7 +90,7 @@ class HomeView extends GetView<HomeController> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            'assets/icon/logo.png',
+                            ImageAsset.yunus,
                             height: 100,
                             width: 100,
                             fit: BoxFit.fitHeight,
@@ -97,26 +98,30 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       const SizedBox(width: 5),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            SizedBox(height: 10),
-                            RichText(
-                              text: TextSpan(
-                                text:
-                                    'Mirza Fakhrul Islam Alamgir is a Bangladeshi politician and the current Secretary General of the Bangladesh Nationalist Party (BNP). He has been a member of the Jatiya Sangsad since 1991, representing the Bogura-6 constituency.',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 10),
+                              RichText(
+                                text: TextSpan(
+                                  text: 'Muhammad Yunus',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
                                 ),
+                                softWrap: true,
+                                overflow: TextOverflow.visible,
+                                maxLines: null,
+                                textAlign: TextAlign.start,
                               ),
-                              maxLines: null,
-                              softWrap: true,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
