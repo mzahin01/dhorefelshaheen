@@ -44,6 +44,8 @@ class HomeView extends GetView<HomeController> {
           const SizedBox(height: 20),
           LoveHateCardWidget(controller: controller, cardTitle: 'Most Loved'),
           const SizedBox(height: 20),
+          LoveHateCardWidget(controller: controller, cardTitle: 'Most Hated'),
+          const SizedBox(height: 20),
         ],
       ),
     );
