@@ -19,16 +19,13 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Obx(() {
         return SingleChildScrollView(
+          controller: controller.scrollController,
           child: CrossfadeWrapperContainer(
             visible: !controller.isLoading.value,
             loaderHeight: Get.height,
-            //Pass respective controller to the widget
             child: ResponsiveWidget<HomeController>(
-              pc:
-                  // buildMobileView(),
-                  buildDesktopView(),
+              pc: buildDesktopView(),
               tab: buildMobileView(),
-              // buildDesktopView(),
               mobile: buildMobileView(),
             ),
           ),
@@ -37,29 +34,28 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  // Mobile layout
   Widget buildMobileView() {
-    return Center(
-      child: Column(
+    return Obx(() {
+      return Column(
         children: [
-          const SizedBox(height: 20),
-          LoveHateCardWidget(
-            controller: controller,
-            cardTitle: 'মহান নেতা',
-            index: 5,
-            maxWidth: 600,
+          CustomScrollView(
+            controller: controller.scrollController,
+            slivers: [
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: Sliver(controller: controller),
+              ),
+            ],
           ),
           const SizedBox(height: 20),
-          LoveHateCardWidget(
-            controller: controller,
-            cardTitle: 'জাউরার জাউরা',
-            index: 6,
-            maxWidth: 600,
-          ),
-          const SizedBox(height: 20),
+          controller.isLoading.value
+              ? Container(height: 200, width: Get.width, color: Colors.black)
+              : const SizedBox.shrink(),
+          Container(height: 200, width: Get.width, color: Colors.black),
+          Container(height: 200, width: Get.width, color: Colors.black),
         ],
-      ),
-    );
+      );
+    });
   }
 
   // Tablet layout
@@ -96,4 +92,74 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+}
+
+class Sliver extends SliverPersistentHeaderDelegate {
+  const Sliver({required this.controller});
+
+  final HomeController controller;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return Container(
+      color: Colors.white,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 500),
+        child:
+            controller.isCollapsed.value
+                ? Row(
+                  key: const ValueKey(1),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MiniLoveHateCardWidget(
+                      controller: controller,
+                      cardTitle: 'মহান নেতা',
+                      index: 5,
+                      maxWidth: 250,
+                    ),
+                    const SizedBox(width: 10),
+                    MiniLoveHateCardWidget(
+                      controller: controller,
+                      cardTitle: 'জাউরার জাউরা',
+                      index: 6,
+                      maxWidth: 250,
+                    ),
+                  ],
+                )
+                : Column(
+                  key: const ValueKey(2),
+                  children: [
+                    const SizedBox(height: 20),
+                    LoveHateCardWidget(
+                      controller: controller,
+                      cardTitle: 'মহান নেতা',
+                      index: 5,
+                      maxWidth: 600,
+                    ),
+                    const SizedBox(height: 20),
+                    LoveHateCardWidget(
+                      controller: controller,
+                      cardTitle: 'জাউরার জাউরা',
+                      index: 6,
+                      maxWidth: 600,
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => controller.isCollapsed.value ? 100 : 420; // Adjust based on your content
+
+  @override
+  double get minExtent => controller.isCollapsed.value ? 100 : 420; // Adjust based on your content
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
 }

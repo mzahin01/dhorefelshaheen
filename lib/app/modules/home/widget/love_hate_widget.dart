@@ -160,3 +160,96 @@ class LoveHateCardWidget extends StatelessWidget {
     );
   }
 }
+
+class MiniLoveHateCardWidget extends StatelessWidget {
+  const MiniLoveHateCardWidget({
+    super.key,
+    required this.controller,
+    required this.cardTitle,
+    required this.index,
+    required this.maxWidth,
+  });
+
+  final HomeController controller;
+  final String cardTitle;
+  final int index;
+  final double maxWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 120,
+      width: min(maxWidth, 200.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(15),
+            spreadRadius: 1,
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: MaterialButton(
+        onPressed: () {
+          // Navigate to the politician profile page
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              Hero(
+                tag: 'politician_mini_${controller.politician[index].name}',
+                child: Container(
+                  height: 80,
+                  width: 65,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      controller.politician[index].image,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      controller.politician[index].name,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      controller.politician[index].mainIdentity,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black.withAlpha(200),
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

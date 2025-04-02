@@ -37,6 +37,23 @@ class Quotes {
 }
 
 class HomeController extends GetxController {
+  final scrollController = ScrollController();
+  final isCollapsed = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() {
+    if (scrollController.offset > 100 && !isCollapsed.value) {
+      isCollapsed.value = true; // Change to row
+    } else if (scrollController.offset <= 100 && isCollapsed.value) {
+      isCollapsed.value = false; // Change to column
+    }
+  }
+
   RxBool isLoading = false.obs;
   TextEditingController searchController = TextEditingController();
   List<Politician> politician = [
