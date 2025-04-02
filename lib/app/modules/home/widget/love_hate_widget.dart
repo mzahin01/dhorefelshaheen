@@ -9,17 +9,19 @@ class LoveHateCardWidget extends StatelessWidget {
     required this.controller,
     required this.cardTitle,
     required this.index,
+    required this.maxWidth,
   });
 
   final HomeController controller;
   final String cardTitle;
   final int index;
+  final double maxWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 250,
-      width: min(800, 300.w),
+      width: min(maxWidth, 300.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -56,17 +58,17 @@ class LoveHateCardWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color:
-                          cardTitle == 'Most Loved'
+                          cardTitle == 'মহান নেতা'
                               ? Colors.red.withAlpha(20)
                               : Colors.grey.withAlpha(20),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
-                      cardTitle == 'Most Loved'
+                      cardTitle == 'মহান নেতা'
                           ? Icons.favorite
                           : Icons.thumb_down,
                       color:
-                          cardTitle == 'Most Loved' ? Colors.red : Colors.black,
+                          cardTitle == 'মহান নেতা' ? Colors.red : Colors.black,
                       size: 20,
                     ),
                   ),

@@ -23,59 +23,58 @@ class HomeController extends GetxController {
   TextEditingController searchController = TextEditingController();
   List<Politician> politician = [
     Politician(
-      name: 'Asif Mahmud',
+      name: 'আসিফ মাহমুদ',
       image: ImageAsset.asif_mahmud,
-      mainIdentity: 'NCP',
-      position: 'Adviser',
+      mainIdentity: 'এনসিপি',
+      position: 'উপদেষ্টা',
       description:
-          'A prominent political adviser and strategist in Bangladesh politics.',
+          'বাংলাদেশের রাজনীতিতে একজন বিশিষ্ট রাজনৈতিক উপদেষ্টা এবং কৌশলবিদ।',
     ),
     Politician(
-      name: 'Mirza Fakhrul',
+      name: 'মির্জা ফখরুল',
       image: ImageAsset.fakhrul,
-      mainIdentity: 'BNP',
-      position: 'Secretary General',
+      mainIdentity: 'বিএনপি',
+      position: 'মহাসচিব',
       description:
-          'Secretary General of the Bangladesh Nationalist Party (BNP). Known for his role in opposition politics.',
+          'বাংলাদেশ জাতীয়তাবাদী দলের (বিএনপি) মহাসচিব। বিরোধী রাজনীতিতে তার ভূমিকার জন্য পরিচিত।',
     ),
     Politician(
-      name: 'Fazlur Rahman',
+      name: 'ফজলুর রহমান',
       image: ImageAsset.fazlu,
-      mainIdentity: 'BNP',
-      position: 'Adviser to Khaleda Zia',
+      mainIdentity: 'বিএনপি',
+      position: 'খালেদা জিয়ার উপদেষ্টা',
       description:
-          'Senior political adviser to former Prime Minister Khaleda Zia and influential figure in BNP.',
+          'সাবেক প্রধানমন্ত্রী খালেদা জিয়ার জ্যেষ্ঠ রাজনৈতিক উপদেষ্টা এবং বিএনপির প্রভাবশালী ব্যক্তিত্ব।',
     ),
     Politician(
-      name: 'Shafiqur Rahman',
+      name: 'শফিকুর রহমান',
       image: ImageAsset.jamat_sh,
-      mainIdentity: 'Jamaat E Islami',
-      position: 'Ameer',
-      description:
-          'Current Ameer (leader) of Bangladesh Jamaat-e-Islami party.',
+      mainIdentity: 'জামায়াতে ইসলামী',
+      position: 'আমীর',
+      description: 'বাংলাদেশ জামায়াতে ইসলামী দলের বর্তমান আমীর (নেতা)।',
     ),
     Politician(
-      name: 'Faham',
+      name: 'ফাহাম',
       image: ImageAsset.faham,
-      mainIdentity: 'BNP affiliate',
-      position: 'Intelactual',
-      description: 'Political intellectual and analyst associated with BNP.',
+      mainIdentity: 'বিএনপি সমর্থক',
+      position: 'বুদ্ধিজীবী',
+      description: 'বিএনপির সাথে সম্পৃক্ত রাজনৈতিক বুদ্ধিজীবী এবং বিশ্লেষক।',
     ),
     Politician(
-      name: 'Tarek Rahman',
+      name: 'তারেক রহমান',
       image: ImageAsset.tarek,
-      mainIdentity: 'BNP',
-      position: 'Senior Vice Chairman',
+      mainIdentity: 'বিএনপি',
+      position: 'সিনিয়র ভাইস চেয়ারম্যান',
       description:
-          'Senior Vice Chairman of BNP and son of former Prime Minister Khaleda Zia.',
+          'বিএনপির সিনিয়র ভাইস চেয়ারম্যান এবং সাবেক প্রধানমন্ত্রী খালেদা জিয়ার পুত্র।',
     ),
     Politician(
-      name: 'Muhammad Yunus',
+      name: 'মুহাম্মদ ইউনূস',
       image: ImageAsset.yunus,
-      mainIdentity: 'Cheif Adviser',
-      position: 'Government of Bangladesh',
+      mainIdentity: 'প্রধান উপদেষ্টা',
+      position: 'বাংলাদেশ সরকার',
       description:
-          'Nobel Peace Prize laureate and founder of Grameen Bank, known for pioneering microfinance.',
+          'নোবেল শান্তি পুরস্কার বিজয়ী এবং গ্রামীণ ব্যাংকের প্রতিষ্ঠাতা, ক্ষুদ্রঋণের পথিকৃৎ হিসেবে পরিচিত।',
     ),
   ];
 }

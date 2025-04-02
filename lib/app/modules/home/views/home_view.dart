@@ -24,10 +24,11 @@ class HomeView extends GetView<HomeController> {
             loaderHeight: Get.height,
             //Pass respective controller to the widget
             child: ResponsiveWidget<HomeController>(
-              pc: buildMobileView(),
-              // buildDesktopView(),
+              pc:
+                  // buildMobileView(),
+                  buildDesktopView(),
               tab: buildMobileView(),
-              // buildTabletView(),
+              // buildDesktopView(),
               mobile: buildMobileView(),
             ),
           ),
@@ -44,14 +45,16 @@ class HomeView extends GetView<HomeController> {
           const SizedBox(height: 20),
           LoveHateCardWidget(
             controller: controller,
-            cardTitle: 'Most Loved',
+            cardTitle: 'মহান নেতা',
             index: 5,
+            maxWidth: 600,
           ),
           const SizedBox(height: 20),
           LoveHateCardWidget(
             controller: controller,
-            cardTitle: 'Most Hated',
+            cardTitle: 'জাউরার জাউরা',
             index: 6,
+            maxWidth: 600,
           ),
           const SizedBox(height: 20),
         ],
@@ -66,6 +69,31 @@ class HomeView extends GetView<HomeController> {
 
   // Desktop layout
   Widget buildDesktopView() {
-    return Center(child: const Text('Desktop View'));
+    return Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LoveHateCardWidget(
+                controller: controller,
+                cardTitle: 'মহান নেতা',
+                index: 5,
+                maxWidth: 400,
+              ),
+              const SizedBox(width: 20),
+              LoveHateCardWidget(
+                controller: controller,
+                cardTitle: 'জাউরার জাউরা',
+                index: 6,
+                maxWidth: 400,
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
   }
 }
